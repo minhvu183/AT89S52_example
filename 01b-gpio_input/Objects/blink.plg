@@ -1,0 +1,16 @@
+<html>
+<body>
+<pre>
+<h1>µVision Build Log</h1>
+<h2>Project:</h2>
+C:\Study\Embeded\8051\Examples\01b-gpio_input\gpio_output.uvproj
+Project File Date:  02/03/2024
+
+<h2>Output:</h2>
+Rebuild target 'Target 1'
+compiling main.c...
+compiling delay.c...
+linking...
+Program Size: data=9.0 xdata=0 const=0 code=28
+creating hex file from ".\Objects\01b-gpio_input"...
+".\Objects\01b-gpio_input" - 0 Error(s), 0 Warning(s).

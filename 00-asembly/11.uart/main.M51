@@ -1,0 +1,68 @@
+BL51 BANKED LINKER/LOCATER V6.22                                                        07/07/2023  08:57:59  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22, INVOKED BY:
+C:\APPS\KEIL\C51\BIN\BL51.EXE main.obj TO main RAMSIZE (256)
+
+
+INPUT MODULES INCLUDED:
+  main.obj (MAIN)
+
+
+LINK MAP OF MODULE:  main (MAIN)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0027H     ABSOLUTE     
+
+
+
+SYMBOL TABLE OF MODULE:  main (MAIN)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        MAIN
+  C:000BH         SYMBOL        MAIN
+  C:001FH         SYMBOL        NHAN
+  B:0098H.0       SYMBOL        RI
+  D:0099H         SYMBOL        SBUF
+  D:0098H         SYMBOL        SCON
+  C:0000H         SYMBOL        SETUP
+  D:008DH         SYMBOL        TH1
+  B:0098H.1       SYMBOL        TI
+  D:0089H         SYMBOL        TMOD
+  B:0088H.6       SYMBOL        TR1
+  C:0017H         SYMBOL        TRUYEN
+  C:0000H         LINE#         3
+  C:0003H         LINE#         4
+  C:0006H         LINE#         5
+  C:0009H         LINE#         6
+  C:000BH         LINE#         9
+  C:000DH         LINE#         10
+  C:000EH         LINE#         11
+  C:0010H         LINE#         12
+  C:0012H         LINE#         13
+  C:0013H         LINE#         14
+  C:0015H         LINE#         15
+  C:0017H         LINE#         18
+  C:0019H         LINE#         19
+  C:001CH         LINE#         20
+  C:001EH         LINE#         21
+  C:001FH         LINE#         24
+  C:0022H         LINE#         25
+  C:0024H         LINE#         26
+  C:0026H         LINE#         27
+BL51 BANKED LINKER/LOCATER V6.22                                                      07/07/2023  08:57:59  PAGE 2
+
+
+  -------         ENDMOD        MAIN
+
+Program Size: data=8.0 xdata=0 code=39
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

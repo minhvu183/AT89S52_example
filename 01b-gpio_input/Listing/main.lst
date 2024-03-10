@@ -1,0 +1,44 @@
+C51 COMPILER V9.52.0.0   MAIN                                                              02/04/2024 20:33:40 PAGE 1   
+
+
+C51 COMPILER V9.52.0.0, COMPILATION OF MODULE MAIN
+OBJECT MODULE PLACED IN .\Objects\main.obj
+COMPILER INVOKED BY: C:\Apps\Keil v5\C51\BIN\C51.EXE main.c OMF2 BROWSE INCDIR(..\..\Library\lib_at89) DEBUG PRINT(.\Lis
+                    -ting\main.lst) OBJECT(.\Objects\main.obj)
+
+line level    source
+
+   1          #include "main.h"
+   2          
+   3          #define button P2_1
+   4          #define led P2_0
+   5          
+   6          void main(){
+   7   1          
+   8   1          button=1;  //set P2_1 là input
+   9   1              
+  10   1          while(1){
+  11   2                      if(button == 0)
+  12   2                  led = 0;
+  13   2              else
+  14   2                  led = 1;
+  15   2              }
+  16   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     13    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+   EDATA SIZE       =   ----    ----
+   HDATA SIZE       =   ----    ----
+   XDATA CONST SIZE =   ----    ----
+   FAR CONST SIZE   =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

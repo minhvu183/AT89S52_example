@@ -1,0 +1,61 @@
+A51 MACRO ASSEMBLER  MAIN                                                                 08/09/2023 13:32:13 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.2.7.0
+OBJECT MODULE PLACED IN main.OBJ
+ASSEMBLER INVOKED BY: C:\Keil_v5\C51\BIN\A51.EXE main.asm SET(SMALL) DEBUG EP
+
+LOC  OBJ            LINE     SOURCE
+
+0000                   1     org 00h
+                       2     
+0000 90001E            3     mov dptr,#sodec
+0003                   4     reset: 
+0003 7B00              5             mov r3,#0
+                       6     
+0005                   7     main:
+0005 EB                8             mov a,r3
+0006 93                9             movc a,@a+dptr
+0007 F5A0             10             mov p2,a
+0009 0B               11             inc r3
+000A 1111             12             call delay
+000C BB0BF6           13             cjne r3,#11,main
+000F 80F2             14             jmp reset
+                      15     
+                      16     
+0011                  17     delay:
+0011 78FF             18             mov r0,#0xff
+0013                  19     loop1:
+0013 79FF             20             mov r1,#0xff
+0015                  21     loop2:
+0015 7A02             22             mov r2,#2
+0017 DAFE             23             djnz r2,$
+0019 D9FA             24             djnz r1,loop2
+001B D8F6             25             djnz r0, loop1
+001D 22               26             ret
+                      27     
+001E 3F065B4F         28     sodec: db 0x3f,0x06,0x5b,0x4f,0x66,0x6d,0x7d,0x07,0x7f,0x6f,0x80
+0022 666D7D07                
+0026 7F6F80                  
+                      29     end
+A51 MACRO ASSEMBLER  MAIN                                                                 08/09/2023 13:32:13 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+DELAY. . . . . . .  C ADDR   0011H   A   
+LOOP1. . . . . . .  C ADDR   0013H   A   
+LOOP2. . . . . . .  C ADDR   0015H   A   
+MAIN . . . . . . .  C ADDR   0005H   A   
+P2 . . . . . . . .  D ADDR   00A0H   A   
+RESET. . . . . . .  C ADDR   0003H   A   
+SODEC. . . . . . .  C ADDR   001EH   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

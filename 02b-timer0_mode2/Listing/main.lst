@@ -1,0 +1,54 @@
+C51 COMPILER V9.52.0.0   MAIN                                                              02/04/2024 20:23:51 PAGE 1   
+
+
+C51 COMPILER V9.52.0.0, COMPILATION OF MODULE MAIN
+OBJECT MODULE PLACED IN .\Objects\main.obj
+COMPILER INVOKED BY: C:\Apps\Keil v5\C51\BIN\C51.EXE main.c OMF2 BROWSE INCDIR(..\..\Library\lib_at89) DEBUG PRINT(.\Lis
+                    -ting\main.lst) OBJECT(.\Objects\main.obj)
+
+line level    source
+
+   1          #include "main.h"
+   2          
+   3          #define led P2_0
+   4          
+   5          void delay_timer0_mode1(){
+   6   1      
+   7   1          TR0 = 1;    //cho timer 0 chay
+   8   1          while(!TF0);    //doi co bao tran timer 0
+   9   1          TR0 = 0;
+  10   1          TF0 = 0;    //xoa co bao tran timer 0
+  11   1      }
+  12          
+  13          void main(){
+  14   1          
+  15   1          TMOD &= 0xf0;    //xoa toan bo bit dieu khien cau timer 0
+  16   1          TMOD |= 0x02;    //timer 0 hoat dong o che do timer, mode 1 16bit
+  17   1          TH0 = 0x37;
+  18   1          TL0 = 0x37;
+  19   1          
+  20   1              while(1){
+  21   2                      led=0;
+  22   2              delay_timer0_mode1();
+  23   2              led=1;
+  24   2              delay_timer0_mode1();
+  25   2              }
+  26   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     34    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+   EDATA SIZE       =   ----    ----
+   HDATA SIZE       =   ----    ----
+   XDATA CONST SIZE =   ----    ----
+   FAR CONST SIZE   =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

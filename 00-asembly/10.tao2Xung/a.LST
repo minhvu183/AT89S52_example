@@ -1,0 +1,59 @@
+A51 MACRO ASSEMBLER  A                                                                    07/01/2023 09:47:38 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.02
+OBJECT MODULE PLACED IN a.OBJ
+ASSEMBLER INVOKED BY: C:\Apps\Keil\C51\BIN\A51.EXE a.asm SET(SMALL) DEBUG EP
+
+LOC  OBJ            LINE     SOURCE
+
+0000                   1     org 00h
+0000                   2     setup:
+0000 758901            3     mov tmod,#0x01
+                       4     
+0003                   5     main:
+0003 7804              6             mov r0,#4
+0005 110B              7             acall xung2khz
+0007 B2A1              8             cpl p2.1
+0009 80F8              9             sjmp main
+                      10              
+000B                  11     xung2khz:
+000B B2A0             12             cpl p2.0
+000D 1112             13             acall delay
+000F D8FA             14             djnz r0, xung2khz
+0011 22               15             ret     
+                      16     
+0012                  17     delay:
+0012 758CFF           18             mov th0,#0xff
+0015 758A14           19             mov tl0,#0x14
+0018 D28C             20             setb tr0
+001A 308DFD           21             jnb tf0,$
+001D C28C             22             clr tr0
+001F C28D             23             clr tf0
+0021 22               24             ret
+                      25     
+                      26     end
+A51 MACRO ASSEMBLER  A                                                                    07/01/2023 09:47:38 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+DELAY. . . . . . .  C ADDR   0012H   A   
+MAIN . . . . . . .  C ADDR   0003H   A   
+P2 . . . . . . . .  D ADDR   00A0H   A   
+SETUP. . . . . . .  C ADDR   0000H   A   
+TF0. . . . . . . .  B ADDR   0088H.5 A   
+TH0. . . . . . . .  D ADDR   008CH   A   
+TL0. . . . . . . .  D ADDR   008AH   A   
+TMOD . . . . . . .  D ADDR   0089H   A   
+TR0. . . . . . . .  B ADDR   0088H.4 A   
+XUNG2KHZ . . . . .  C ADDR   000BH   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

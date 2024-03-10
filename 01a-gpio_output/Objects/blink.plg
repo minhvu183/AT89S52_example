@@ -1,0 +1,24 @@
+<html>
+<body>
+<pre>
+<h1>µVision Build Log</h1>
+<h2>Project:</h2>
+C:\Study\Embeded\8051\Examples\01a-gpio_output\gpio_output.uvproj
+Project File Date:  02/03/2024
+
+<h2>Output:</h2>
+Rebuild target 'Target 1'
+compiling main.c...
+main.h(5): warning C318: can't open file 'port.h'
+main.c(6): error C202: 'led': undefined identifier
+main.c(8): error C202: 'led': undefined identifier
+compiling delay.c...
+main.h(5): warning C318: can't open file 'port.h'
+Target not created
+Rebuild target 'Target 1'
+compiling main.c...
+compiling delay.c...
+linking...
+Program Size: data=9.0 xdata=0 const=0 code=47
+creating hex file from ".\Objects\01a-gpio_output"...
+".\Objects\01a-gpio_output" - 0 Error(s), 0 Warning(s).

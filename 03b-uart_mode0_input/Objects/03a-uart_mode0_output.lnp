@@ -1,0 +1,5 @@
+".\Objects\main.obj",
+".\Objects\delay.obj" 
+TO ".\Objects\03a-uart_mode0_output" 
+
+NOPRINT ru 

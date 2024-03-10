@@ -1,0 +1,109 @@
+A51 MACRO ASSEMBLER  MAIN                                                                 06/30/2023 09:42:49 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.02
+OBJECT MODULE PLACED IN main.OBJ
+ASSEMBLER INVOKED BY: C:\Apps\Keil\C51\BIN\A51.EXE main.asm SET(SMALL) DEBUG EP
+
+LOC  OBJ            LINE     SOURCE
+
+0000                   1     org 00h
+0000 900061            2     mov dptr,#sodec
+0003 75B0FF            3     mov p3,#0xff
+0006                   4     reset:
+0006 7856              5             mov r0,#86
+0008 7C61              6             mov r4,#97
+000A                   7     main:
+000A 7932              8             mov r1,#50
+000C 1113              9             call kiemtra
+000E 111F             10             call hienthi
+0010 08               11             inc r0                  
+0011 80F7             12             sjmp main
+                      13     
+0013                  14     kiemtra:
+0013 B86408           15             cjne r0,#100,back
+0016 0C               16             inc r4
+0017 7800             17             mov r0,#0
+0019 BC6402           18             cjne r4, #100, back
+001C 80E8             19             sjmp reset
+001E                  20     back:
+001E 22               21             ret
+                      22     
+                      23     
+001F                  24     hienthi:
+001F E8               25             mov a,r0
+0020 75F00A           26             mov b,#10
+0023 84               27             div ab
+0024 FA               28             mov r2,a
+0025 E5F0             29             mov a,b
+0027 93               30             movc a,@a+dptr
+0028 F5A0             31             mov p2,a
+002A C2B0             32             clr p3.0
+002C 1158             33             call delay50ms
+002E D2B0             34             setb p3.0
+0030 EA               35             mov a,r2
+0031 93               36             movc a,@a+dptr
+0032 F5A0             37             mov p2,a
+0034 C2B1             38             clr p3.1
+0036 1158             39             call delay50ms
+0038 D2B1             40             setb p3.1
+                      41     
+003A EC               42             mov a,r4
+003B 75F00A           43             mov b,#10
+003E 84               44             div ab
+003F FA               45             mov r2,a
+0040 E5F0             46             mov a,b
+0042 93               47             movc a,@a+dptr
+0043 F5A0             48             mov p2,a
+0045 C2B2             49             clr p3.2
+0047 1158             50             call delay50ms
+0049 D2B2             51             setb p3.2
+004B EA               52             mov a,r2
+004C 93               53             movc a,@a+dptr
+004D F5A0             54             mov p2,a
+004F C2B3             55             clr p3.3
+0051 1158             56             call delay50ms
+0053 D2B3             57             setb p3.3
+                      58     
+A51 MACRO ASSEMBLER  MAIN                                                                 06/30/2023 09:42:49 PAGE     2
+
+0055 D9C8             59             djnz r1, hienthi
+0057 22               60             ret
+                      61     
+0058                  62     delay50ms:
+0058 7F64             63             mov r7,#100
+005A                  64     loop1x:
+005A 7E04             65             mov r6,#4
+005C DEFE             66             djnz r6,$
+005E DFFA             67             djnz r7,loop1x
+0060 22               68             ret     
+                      69     
+0061 3F065B4F         70     sodec: db 0x3f,0x06,0x5b,0x4f,0x66,0x6d,0x7d,0x07,0x7f,0x6f
+0065 666D7D07                
+0069 7F6F                    
+                      71     end
+A51 MACRO ASSEMBLER  MAIN                                                                 06/30/2023 09:42:49 PAGE     3
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+B. . . . . . . . .  D ADDR   00F0H   A   
+BACK . . . . . . .  C ADDR   001EH   A   
+DELAY50MS. . . . .  C ADDR   0058H   A   
+HIENTHI. . . . . .  C ADDR   001FH   A   
+KIEMTRA. . . . . .  C ADDR   0013H   A   
+LOOP1X . . . . . .  C ADDR   005AH   A   
+MAIN . . . . . . .  C ADDR   000AH   A   
+P2 . . . . . . . .  D ADDR   00A0H   A   
+P3 . . . . . . . .  D ADDR   00B0H   A   
+RESET. . . . . . .  C ADDR   0006H   A   
+SODEC. . . . . . .  C ADDR   0061H   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

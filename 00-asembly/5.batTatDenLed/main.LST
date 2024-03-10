@@ -1,0 +1,45 @@
+A51 MACRO ASSEMBLER  MAIN                                                                 06/29/2023 15:55:02 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.02
+OBJECT MODULE PLACED IN main.OBJ
+ASSEMBLER INVOKED BY: C:\Apps\Keil\C51\BIN\A51.EXE main.asm SET(SMALL) DEBUG EP
+
+LOC  OBJ            LINE     SOURCE
+
+0000                   1     org 00h
+                       2     
+0000                   3     main:
+0000 309702            4             jnb p1.7, wail
+0003 80FB              5             sjmp main
+                       6     
+0005                   7     wail: 
+0005 7B05              8             mov r3,#5
+0007 DBFE              9             djnz r3,$
+0009 209702           10             jb p1.7,on
+000C 80F7             11             sjmp wail
+                      12             
+000E                  13     on:
+000E B2A0             14             cpl p2.0
+0010 80EE             15             sjmp main
+                      16     
+                      17     end
+A51 MACRO ASSEMBLER  MAIN                                                                 06/29/2023 15:55:02 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+MAIN . . . . . . .  C ADDR   0000H   A   
+ON . . . . . . . .  C ADDR   000EH   A   
+P1 . . . . . . . .  D ADDR   0090H   A   
+P2 . . . . . . . .  D ADDR   00A0H   A   
+WAIL . . . . . . .  C ADDR   0005H   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

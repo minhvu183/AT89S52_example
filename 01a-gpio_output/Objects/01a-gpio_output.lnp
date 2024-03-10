@@ -1,0 +1,5 @@
+".\Objects\main.obj",
+".\Objects\delay.obj" 
+TO ".\Objects\01a-gpio_output" 
+
+PRINT(".\Listing\01a-gpio_output.map") ru 

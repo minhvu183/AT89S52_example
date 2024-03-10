@@ -1,0 +1,67 @@
+A51 MACRO ASSEMBLER  MAIN                                                                 08/09/2023 13:35:26 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.2.7.0
+OBJECT MODULE PLACED IN main.OBJ
+ASSEMBLER INVOKED BY: C:\Keil_v5\C51\BIN\A51.EXE main.asm SET(SMALL) DEBUG EP
+
+LOC  OBJ            LINE     SOURCE
+
+0000                   1     org 00h
+                       2     
+0000 900023            3     mov dptr,#sodec
+0003                   4     reset:
+0003 7B00              5             mov r3,#0
+                       6     
+0005                   7     main:   
+0005 EB                8             mov a,r3
+0006 75F00A            9             mov b,#10
+0009 84               10             div ab
+000A 93               11             movc a,@a+dptr
+000B F5A0             12             mov p2,a
+000D E5F0             13             mov a,b
+000F 93               14             movc a,@a+dptr
+0010 F5B0             15             mov p3,a
+0012 0B               16             inc r3
+0013 111A             17             call delay
+0015 BB64ED           18             cjne r3,#100,main
+0018 80E9             19             sjmp reset
+                      20     
+001A                  21     delay:
+001A 78FF             22             mov r0,#0xff
+001C                  23     loop1:
+001C 79FF             24             mov r1,#0xff
+001E                  25     loop2:
+                      26             ;mov r2,#2
+                      27             ;djnz r2,$
+001E D9FE             28             djnz r1,loop2
+0020 D8FA             29             djnz r0, loop1
+0022 22               30             ret
+                      31     
+0023 C0F9A4B0         32     sodec: db 0xc0,0xf9,0xa4,0xb0,0x99,0x92,0x82,0xf8,0x80,0x90,0x7f
+0027 999282F8                
+002B 80907F                  
+                      33     end
+A51 MACRO ASSEMBLER  MAIN                                                                 08/09/2023 13:35:26 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+B. . . . . . . . .  D ADDR   00F0H   A   
+DELAY. . . . . . .  C ADDR   001AH   A   
+LOOP1. . . . . . .  C ADDR   001CH   A   
+LOOP2. . . . . . .  C ADDR   001EH   A   
+MAIN . . . . . . .  C ADDR   0005H   A   
+P2 . . . . . . . .  D ADDR   00A0H   A   
+P3 . . . . . . . .  D ADDR   00B0H   A   
+RESET. . . . . . .  C ADDR   0003H   A   
+SODEC. . . . . . .  C ADDR   0023H   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

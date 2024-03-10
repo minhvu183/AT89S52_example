@@ -1,0 +1,137 @@
+A51 MACRO ASSEMBLER  MAIN                                                                 06/30/2023 16:55:43 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.02
+OBJECT MODULE PLACED IN main.OBJ
+ASSEMBLER INVOKED BY: C:\Apps\Keil\C51\BIN\A51.EXE main.asm SET(SMALL) DEBUG EP
+
+LOC  OBJ            LINE     SOURCE
+
+0000                   1     org 00h
+0000                   2     setup:
+0000 758911            3     mov tmod,#00010001B
+0003 900081            4     mov dptr,#sodec
+0006 75B0FF            5     mov p3,#0xff
+0009                   6     reset:
+0009 7C10              7             mov r4,#16
+000B 7838              8             mov r0,#56
+                       9     
+000D                  10     main:
+000D AD3C             11             mov r5,60
+000F                  12     loop:
+000F 7E28             13             mov r6,#40
+0011 111A             14             call chaygio
+0013 112E             15             call kiemtra
+0015 DDF8             16             djnz r5,loop
+0017 08               17             inc r0          
+0018 80F3             18             sjmp main
+                      19     
+001A                  20     chaygio:
+001A 758DED           21             mov th1,#0xed
+001D 758BF3           22             mov tl1,#0xf3
+0020 D28E             23             setb tr1
+0022 308FFD           24             jnb tf1,$
+0025 C28E             25             clr tr1
+0027 C28F             26             clr tf1
+0029 113A             27             call hienthi
+002B DEED             28             djnz r6,chaygio
+002D 22               29             ret
+                      30             
+                      31     
+002E                  32     kiemtra:
+002E B83C08           33             cjne r0,#60,back
+0031 0C               34             inc r4
+0032 7800             35             mov r0,#0
+0034 BC1902           36             cjne r4, #25, back
+0037 80D0             37             sjmp reset
+0039                  38     back:
+0039 22               39             ret
+                      40     
+                      41     
+003A                  42     hienthi:
+003A E8               43             mov a,r0
+003B 75F00A           44             mov b,#10
+003E 84               45             div ab
+003F FA               46             mov r2,a
+0040 E5F0             47             mov a,b
+0042 93               48             movc a,@a+dptr
+0043 F5A0             49             mov p2,a
+0045 C2B0             50             clr p3.0
+0047 1171             51             call delay
+0049 D2B0             52             setb p3.0
+004B EA               53             mov a,r2
+004C 93               54             movc a,@a+dptr
+004D F5A0             55             mov p2,a
+004F C2B1             56             clr p3.1
+0051 1171             57             call delay
+0053 D2B1             58             setb p3.1
+A51 MACRO ASSEMBLER  MAIN                                                                 06/30/2023 16:55:43 PAGE     2
+
+                      59     
+0055 EC               60             mov a,r4
+0056 75F00A           61             mov b,#10
+0059 84               62             div ab
+005A FA               63             mov r2,a
+005B E5F0             64             mov a,b
+005D 93               65             movc a,@a+dptr
+005E F5A0             66             mov p2,a
+0060 C2B2             67             clr p3.2
+0062 1171             68             call delay
+0064 D2B2             69             setb p3.2
+0066 EA               70             mov a,r2
+0067 93               71             movc a,@a+dptr
+0068 F5A0             72             mov p2,a
+006A C2B3             73             clr p3.3
+006C 1171             74             call delay
+006E D2B3             75             setb p3.3
+0070 22               76             ret
+                      77     
+0071                  78     delay:
+0071 758CED           79             mov th0,#0xed
+0074 758AF3           80             mov tl0,#0xf3
+0077 D28C             81             setb tr0
+0079 308DFD           82             jnb tf0,$
+007C C28C             83             clr tr0
+007E C28D             84             clr tf0
+0080 22               85             ret     
+                      86     
+0081 3F065B4F         87     sodec: db 0x3f,0x06,0x5b,0x4f,0x66,0x6d,0x7d,0x07,0x7f,0x6f
+0085 666D7D07                
+0089 7F6F                    
+                      88     end
+A51 MACRO ASSEMBLER  MAIN                                                                 06/30/2023 16:55:43 PAGE     3
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+B. . . . . . . . .  D ADDR   00F0H   A   
+BACK . . . . . . .  C ADDR   0039H   A   
+CHAYGIO. . . . . .  C ADDR   001AH   A   
+DELAY. . . . . . .  C ADDR   0071H   A   
+HIENTHI. . . . . .  C ADDR   003AH   A   
+KIEMTRA. . . . . .  C ADDR   002EH   A   
+LOOP . . . . . . .  C ADDR   000FH   A   
+MAIN . . . . . . .  C ADDR   000DH   A   
+P2 . . . . . . . .  D ADDR   00A0H   A   
+P3 . . . . . . . .  D ADDR   00B0H   A   
+RESET. . . . . . .  C ADDR   0009H   A   
+SETUP. . . . . . .  C ADDR   0000H   A   
+SODEC. . . . . . .  C ADDR   0081H   A   
+TF0. . . . . . . .  B ADDR   0088H.5 A   
+TF1. . . . . . . .  B ADDR   0088H.7 A   
+TH0. . . . . . . .  D ADDR   008CH   A   
+TH1. . . . . . . .  D ADDR   008DH   A   
+TL0. . . . . . . .  D ADDR   008AH   A   
+TL1. . . . . . . .  D ADDR   008BH   A   
+TMOD . . . . . . .  D ADDR   0089H   A   
+TR0. . . . . . . .  B ADDR   0088H.4 A   
+TR1. . . . . . . .  B ADDR   0088H.6 A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

@@ -1,0 +1,48 @@
+A51 MACRO ASSEMBLER  A                                                                    08/09/2023 13:05:04 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.2.7.0
+OBJECT MODULE PLACED IN a.OBJ
+ASSEMBLER INVOKED BY: C:\Keil_v5\C51\BIN\A51.EXE a.asm SET(SMALL) DEBUG EP
+
+LOC  OBJ            LINE     SOURCE
+
+0000                   1     org 00h
+                       2     
+                       3     
+0000                   4     main:
+0000 B2A0              5             cpl p2.0
+0002 1106              6             call delay
+0004 80FA              7             sjmp main
+                       8     
+0006                   9     delay:
+0006 78AA             10             mov r0,#0xaa
+0008                  11             loop1:
+0008 79AA             12                     mov r1,#0xaa
+000A                  13                     loop2:
+000A 7A03             14                             mov r2,#3
+000C DAFE             15                             djnz r2,$
+000E D9FA             16                             djnz r1,loop2
+0010 D8F6             17                             djnz r0, loop1
+0012 22               18                     ret
+                      19     
+                      20     end
+A51 MACRO ASSEMBLER  A                                                                    08/09/2023 13:05:04 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+DELAY. . . . . . .  C ADDR   0006H   A   
+LOOP1. . . . . . .  C ADDR   0008H   A   
+LOOP2. . . . . . .  C ADDR   000AH   A   
+MAIN . . . . . . .  C ADDR   0000H   A   
+P2 . . . . . . . .  D ADDR   00A0H   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

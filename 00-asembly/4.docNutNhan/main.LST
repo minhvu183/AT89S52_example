@@ -1,0 +1,62 @@
+A51 MACRO ASSEMBLER  MAIN                                                                 08/09/2023 13:38:58 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.2.7.0
+OBJECT MODULE PLACED IN main.OBJ
+ASSEMBLER INVOKED BY: C:\Keil_v5\C51\BIN\A51.EXE main.asm SET(SMALL) DEBUG EP
+
+LOC  OBJ            LINE     SOURCE
+
+0000                   1     org 00h
+                       2     
+0000 900026            3     mov dptr,#sodec
+0003                   4     reset:
+0003 7B01              5             mov r3,#1
+0005                   6     main:
+0005 309702            7             jnb p1.7, wail
+0008 80FB              8             sjmp main       
+000A                   9     wail: 
+000A 7C05             10             mov r4,#5
+000C DCFE             11             djnz r4,$
+000E 209702           12             jb p1.7,on
+0011 80F7             13             sjmp wail       
+0013                  14     on:     
+0013 EB               15             mov a,r3
+0014 75F00A           16             mov b,#10
+0017 84               17             div ab
+0018 93               18             movc a,@a+dptr
+0019 F5A0             19             mov p2,a
+001B E5F0             20             mov a,b
+001D 93               21             movc a,@a+dptr
+001E F5B0             22             mov p3,a
+0020 0B               23             inc r3
+0021 BB64E1           24             cjne r3,#100,main
+0024 80DD             25             sjmp reset
+                      26     
+0026 C0F9A4B0         27     sodec: db 0xc0,0xf9,0xa4,0xb0,0x99,0x92,0x82,0xf8,0x80,0x90,0x7f
+002A 999282F8                
+002E 80907F                  
+                      28     end
+A51 MACRO ASSEMBLER  MAIN                                                                 08/09/2023 13:38:58 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+B. . . . . . . . .  D ADDR   00F0H   A   
+MAIN . . . . . . .  C ADDR   0005H   A   
+ON . . . . . . . .  C ADDR   0013H   A   
+P1 . . . . . . . .  D ADDR   0090H   A   
+P2 . . . . . . . .  D ADDR   00A0H   A   
+P3 . . . . . . . .  D ADDR   00B0H   A   
+RESET. . . . . . .  C ADDR   0003H   A   
+SODEC. . . . . . .  C ADDR   0026H   A   
+WAIL . . . . . . .  C ADDR   000AH   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)
